@@ -217,5 +217,8 @@ pip-log.txt
 #Personal Data
 LocationHistory.json
 
-#NPM
+#Package managment
 node_modules/
+.bower-cache
+.bower-registry
+.bower-tmp
