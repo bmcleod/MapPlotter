@@ -1,8 +1,11 @@
-<section data-ng-controller="IndexController">
-	<h1>Personal Plotter</h1>
+<div ng-app="MapPlotter">
+	<section ng-controller="MapCtrl">
+		{{ text }}
+	</section>
+	<section ng-controller="PlotsCtrl">
+	{{ locations }}
+	<tr ng-repeat="plot in locations">
+		<td> {{plot.latitudeE7}} , {{plot.longitudeE7}} </td>
+	</tr>
 </section>
-<section ng-app="MapApp" data-ng-controller="MapCtrl">
-<tr ng-repeat="(key, value) in coordinates">
-  <td> {{key}} </td> <td> {{ value }} </td>
-</tr>
-</section>
+</div>

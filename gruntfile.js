@@ -77,12 +77,13 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'test/karma/karma.conf.js'
             }
-        },
-		jsonlint: {
-			location: {
-				src: [ 'public/json/LocationHistory.json' ]
-			}
-		}
+        }
+		// ,
+		// jsonlint: {
+			// location: {
+				// src: [ 'public/json/LocationHistory.json' ]
+			// }
+		// }
     });
 
     //Load NPM tasks
@@ -93,13 +94,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
-	grunt.loadNpmTasks('grunt-jsonlint');
+	//grunt.loadNpmTasks('grunt-jsonlint');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jsonlint', 'jshint', 'concurrent']);
+    //grunt.registerTask('default', ['jsonlint', 'jshint', 'concurrent']);
+	grunt.registerTask('default', ['jshint', 'concurrent']);
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
