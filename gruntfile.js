@@ -26,8 +26,19 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['public/css/**'],
+                tasks: ['less'],
                 options: {
                     livereload: true
+                }
+            }
+        },
+        less: {
+            dev: {
+                options: {
+                    paths: ['public/lib/bootstrap/less', 'public/css/**']
+                },
+                files: {
+                    'public/css/main.css': 'public/css/main.less'
                 }
             }
         },
@@ -88,12 +99,14 @@ module.exports = function(grunt) {
 
     //Load NPM tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks('grunt-devtools');
 	//grunt.loadNpmTasks('grunt-jsonlint');
 
     //Making grunt default to force in order not to break the project.
