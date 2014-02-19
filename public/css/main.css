@@ -5955,3 +5955,6 @@ td.visible-print {
     display: none !important;
   }
 }
+.angular-google-map-container {
+  height: 400px;
+}

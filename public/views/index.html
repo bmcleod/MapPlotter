@@ -3,9 +3,19 @@
 		{{ text }}
 	</section>
 	<section ng-controller="PlotsCtrl">
-	{{ locations }}
-	<tr ng-repeat="plot in locations">
-		<td> {{plot.latitudeE7}} , {{plot.longitudeE7}} </td>
-	</tr>
-</section>
+		<google-map draggable="true" center="map.center" zoom="map.zoom">
+			<markers models="map.markers" coords="'self'">
+				<windows isIconVisibleOnClick="true" ng-cloak>
+					 <p ng-non-bindable>This is an info window at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
+				</window>
+			</markers>
+		</google-map>
+		<table>
+			<tr ng-repeat="plot in locations">
+				<td ng-click="mapPoint(plot.latitude, plot.longitude)" data-idea="Plot this location on the map."> 
+				
+				</td>
+			</tr>
+		</table>
+	</section>
 </div>
